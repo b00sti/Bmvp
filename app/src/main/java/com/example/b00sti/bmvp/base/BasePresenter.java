@@ -26,11 +26,14 @@ public abstract class BasePresenter<P> implements MvpPresenter {
     public abstract void onUnsubscribe();
 
     public void addDisposable(Disposable disposable) {
-        compositeDisposable.add(disposable);
+        if (compositeDisposable != null) {
+            compositeDisposable.add(disposable);
+        }
     }
 
     @Override
     public void subscribe() {
+        compositeDisposable = new CompositeDisposable();
         onSubscribe();
     }
 
