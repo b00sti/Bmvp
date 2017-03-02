@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 25
@@ -30,4 +31,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile "org.androidannotations:androidannotations-api:4.1.0"
     apt "org.androidannotations:androidannotations:4.1.0"
+    compile 'io.reactivex.rxjava2:rxjava:2.0.5'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
 }

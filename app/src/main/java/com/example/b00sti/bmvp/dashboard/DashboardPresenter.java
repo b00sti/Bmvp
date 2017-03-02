@@ -3,7 +3,7 @@ package com.example.b00sti.bmvp.dashboard;
 import android.app.Activity;
 import android.widget.Toast;
 
-import com.example.b00sti.bmvp.base.MvpPresenter;
+import com.example.b00sti.bmvp.base.BasePresenter;
 
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
@@ -13,7 +13,7 @@ import org.androidannotations.annotations.RootContext;
  */
 
 @EBean
-public class DashboardPresenter extends MvpPresenter<DashboardContract.View> implements DashboardContract.Presenter {
+public class DashboardPresenter extends BasePresenter<DashboardContract.View> implements DashboardContract.Presenter {
     private static final String TAG = "DashboardPresenter";
 
     @RootContext
@@ -35,12 +35,12 @@ public class DashboardPresenter extends MvpPresenter<DashboardContract.View> imp
     }
 
     @Override
-    public void subscribe() {
+    public void onSubscribe() {
         Toast.makeText(ctx, "Subscribed: " + ctx.getLocalClassName(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void unsubscribe() {
+    public void onUnsubscribe() {
         Toast.makeText(ctx, "Unsubscribed: " + ctx.getLocalClassName(), Toast.LENGTH_SHORT).show();
     }
 }

@@ -6,7 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.b00sti.bmvp.R;
-import com.example.b00sti.bmvp.base.MvpFragment;
+import com.example.b00sti.bmvp.base.BaseFragment;
 
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
@@ -18,7 +18,7 @@ import org.androidannotations.annotations.ViewById;
  */
 
 @EFragment(R.layout.fragment_dashboard)
-public class DashboardFragment extends MvpFragment<DashboardContract.Presenter> implements DashboardContract.View {
+public class DashboardFragment extends BaseFragment<DashboardPresenter> implements DashboardContract.View {
     @Bean
     DashboardPresenter presenter;
 
@@ -44,8 +44,8 @@ public class DashboardFragment extends MvpFragment<DashboardContract.Presenter> 
     }
 
     @Override
-    protected DashboardContract.Presenter setPresenterView() {
-        presenter.setView(this);
+    protected DashboardPresenter registerPresenter() {
+        presenter.attachView(this);
         return presenter;
     }
 

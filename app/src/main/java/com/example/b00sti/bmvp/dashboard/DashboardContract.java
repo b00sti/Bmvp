@@ -1,7 +1,5 @@
 package com.example.b00sti.bmvp.dashboard;
 
-import com.example.b00sti.bmvp.base.BasePresenter;
-
 /**
  * Created by Dominik (b00sti) Pawlik on 2017-03-02
  */
@@ -18,7 +16,7 @@ public class DashboardContract {
 
     }
 
-    public interface Presenter extends BasePresenter {
+    public interface Presenter {
 
         void afterClick1();
 
