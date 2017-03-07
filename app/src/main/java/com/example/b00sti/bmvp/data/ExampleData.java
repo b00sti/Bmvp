@@ -8,8 +8,8 @@ import io.realm.annotations.PrimaryKey;
  */
 
 public class ExampleData extends RealmObject {
-    @PrimaryKey
     public int id;
+    @PrimaryKey
     public String text;
 
     public ExampleData() {

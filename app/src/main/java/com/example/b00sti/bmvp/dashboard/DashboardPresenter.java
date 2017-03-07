@@ -28,10 +28,9 @@ public class DashboardPresenter extends BasePresenter<DashboardContract.View> im
     Activity ctx;
 
     @Override
-    public void afterClick1() {
+    public void afterClick1(String s) {
         List<ExampleData> exampleDatas = new ArrayList<>();
-        exampleDatas.add(new ExampleData(1, "yes"));
-        exampleDatas.add(new ExampleData(2, "no"));
+        exampleDatas.add(new ExampleData(s.length(), s));
         new SetExampleDataInteractor().execute(exampleDatas);
         Toast.makeText(ctx, "Clicked 1 !", Toast.LENGTH_SHORT).show();
     }

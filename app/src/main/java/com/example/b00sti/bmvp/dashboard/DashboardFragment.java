@@ -2,6 +2,7 @@ package com.example.b00sti.bmvp.dashboard;
 
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class DashboardFragment extends BaseFragment<DashboardPresenter> implemen
     DashboardPresenter presenter;
 
     @ViewById(R.id.progressBar) ProgressBar progressBar;
+    @ViewById(R.id.inputET) EditText editText;
 
     public static Fragment newInstance() {
         return new DashboardFragment_();
@@ -30,7 +32,7 @@ public class DashboardFragment extends BaseFragment<DashboardPresenter> implemen
 
     @Click(R.id.button1B)
     void clickedButton1() {
-        presenter.afterClick1();
+        presenter.afterClick1(editText.getText().toString());
     }
 
     @Click(R.id.button2B)

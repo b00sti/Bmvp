@@ -18,7 +18,7 @@ public class DashboardContract {
 
     public interface Presenter {
 
-        void afterClick1();
+        void afterClick1(String s);
 
         void afterClick2();
 
