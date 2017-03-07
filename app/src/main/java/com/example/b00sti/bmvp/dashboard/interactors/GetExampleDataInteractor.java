@@ -26,12 +26,7 @@ public class GetExampleDataInteractor {
         final RealmResults<E> all = realm.where(clazz).findAll();
         final List<E> list = realm.copyFromRealm(all);
 
-        return Observable.just(list).doAfterTerminate(new Action() {
-            @Override
-            public void run() throws Exception {
-                realm.close();
-            }
-        })
+        return Observable.just(list)
                 .doAfterTerminate(new Action() {
                     @Override
                     public void run() throws Exception {
