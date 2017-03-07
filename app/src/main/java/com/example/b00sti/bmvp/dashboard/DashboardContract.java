@@ -1,5 +1,9 @@
 package com.example.b00sti.bmvp.dashboard;
 
+import com.example.b00sti.bmvp.data.ExampleData;
+
+import java.util.List;
+
 /**
  * Created by Dominik (b00sti) Pawlik on 2017-03-02
  */
@@ -14,13 +18,15 @@ public class DashboardContract {
 
         void showNoConnection();
 
+        void refreshExampleAdapter(List<ExampleData> exampleData);
+
     }
 
     public interface Presenter {
 
-        void afterClick1(String s);
+        void saveData(String s);
 
-        void afterClick2();
+        void refreshRVwithExampleData();
 
         void afterClick3();
 

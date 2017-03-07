@@ -28,7 +28,7 @@ public class DashboardPresenter extends BasePresenter<DashboardContract.View> im
     Activity ctx;
 
     @Override
-    public void afterClick1(String s) {
+    public void saveData(String s) {
         List<ExampleData> exampleDatas = new ArrayList<>();
         exampleDatas.add(new ExampleData(s.length(), s));
         new SetExampleDataInteractor().execute(exampleDatas);
@@ -36,15 +36,11 @@ public class DashboardPresenter extends BasePresenter<DashboardContract.View> im
     }
 
     @Override
-    public void afterClick2() {
+    public void refreshRVwithExampleData() {
         addDisposable(new GetExampleDataInteractor().execute().subscribe(new Consumer<List<ExampleData>>() {
             @Override
             public void accept(List<ExampleData> exampleDatas) throws Exception {
-                StringBuilder message = new StringBuilder().append("Data: ");
-                for (ExampleData data : exampleDatas) {
-                    message.append(data.text);
-                }
-                Toast.makeText(ctx, message.toString(), Toast.LENGTH_SHORT).show();
+                view.refreshExampleAdapter(exampleDatas);
             }
         }));
     }
